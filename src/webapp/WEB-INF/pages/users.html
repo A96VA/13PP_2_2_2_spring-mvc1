@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Все машины</title>
+    <title>Все люди</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
@@ -10,16 +10,18 @@
 <table class="table table-dark">
     <thead>
     <tr>
-        <th scope="col">gosNomer</th>
-        <th scope="col">brand</th>
-        <th scope="col">color</th>
+        <th scope="col">id</th>
+        <th scope="col">nomer</th>
+        <th scope="col">nameUs</th>
+        <th scope="col">lastNameUs</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="car : ${listCars}">
-        <td th:text="${car.gosNomer}"/>
-        <td th:text="${car.brand}"/>
-        <td th:text="${car.color}"/>
+    <tr th:each="user : ${listUsers}">
+        <td th:text="${user.id}"/>
+        <td th:text="${user.nomer}"/>
+        <td th:text="${user.nameUs}"/>
+        <td th:text="${user.lastNameUs}"/>
     </tr>
     </tbody>
 </table>

@@ -6,18 +6,21 @@
 
 </head>
 
-<form th:method="POST" th:action="@{/cars}" th:object="${car}">
+<form th:method="POST" th:action="@{/users}" th:object="${user}">
 <div>
-  <label for="gosNomer">gos</label>
-  <input type="text" th:field="*{gosNomer}" id="gosNomer"/>
+  <label for="id">id</label>
+  <input type="text" th:field="*{id}" id="id"/>
   </br>
-  <label for="brand">brand</label>
-  <input type="text" th:field="*{brand}" id="brand"/>
+  <label for="nomer">nomer</label>
+  <input type="text" th:field="*{nomer}" id="nomer"/>
+  </br>
+  <label for="nameUs">nameUs</label>
+  <input type="text" th:field="*{nameUs}" id="nameUs"/>
   <br>
-  <label for="color">color</label>
-  <input type="text"  th:field="*{color}"  id="color"/>
+  <label for="lastNameUs">lastNameUs</label>
+  <input type="text"  th:field="*{lastNameUs}"  id="lastNameUs"/>
   <br>
-  <input type="submit" value="Add Car"/>
+  <input type="submit" value="Add User"/>
 </div>
 </form>
 
