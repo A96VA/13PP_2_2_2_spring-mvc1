@@ -18,34 +18,41 @@ public class CarsController {
     }
 
     @GetMapping()
-    public String countCars(@RequestParam(name = "count", defaultValue = "10") int count, Model model){
+    public String countCars(@RequestParam(name = "count", defaultValue = "10") int count, Model model) {
         model.addAttribute("listCars", carService.countCars(count));
         return "cars";
     }
+
     @GetMapping("/new")
-    public String newCar(Model model){
+    public String newCar(Model model) {
         model.addAttribute("car", new Car());
         return "new";
     }
+
+    @PostMapping()
+    public String create(@ModelAttribute("car") Car car) {
+        carService.save(car);
+        return "redirect:/cars";
+    }
+//
+//    @GetMapping
+//    public
+
+
+
+}
 //    @PostMapping()
-//    public String create (@ModelAttribute("car") Car car){
+//    public String create (@RequestParam("gosNomer") String gosNomer,
+//                          @RequestParam("brand") String brand,
+//                          @RequestParam("color") String color){
+//        Car car = new Car();
+//        car.setGosNomer(gosNomer);
+//        car.setBrand(brand);
+//        car.setColor(color);
 //        carService.save(car);
+//
 //        return "redirect:/cars";
 //    }
 
 
-    @PostMapping()
-    public String create (@RequestParam("gosNomer") String gosNomer,
-                          @RequestParam("brand") String brand,
-                          @RequestParam("color") String color){
-        Car car = new Car();
-        car.setGosNomer(gosNomer);
-        car.setBrand(brand);
-        car.setColor(color);
-        carService.save(car);
 
-        return "redirect:/cars";
-    }
-
-
-}

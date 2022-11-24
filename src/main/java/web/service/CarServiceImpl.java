@@ -15,12 +15,12 @@ public class CarServiceImpl implements CarService {
 
     {
         carList = new ArrayList<>();
-        carList.add(new Car("a", "BMW", "black"));
-        carList.add(new Car("s", "Meren", "white"));
-        carList.add(new Car("d", "bymer", "green"));
-        carList.add(new Car("f", "jeep", "blue"));
-        carList.add(new Car("g", "kia", "orange"));
-        carList.add(new Car("h", "kia", "orange"));
+        carList.add(new Car(123, "BMW", "black"));
+        carList.add(new Car(234, "Meren", "white"));
+        carList.add(new Car(345, "bymer", "green"));
+        carList.add(new Car(456, "jeep", "blue"));
+        carList.add(new Car(567, "kia", "orange"));
+        carList.add(new Car(678, "kia", "orange"));
     }
     @Override
     public List<Car> getCar() {
@@ -33,7 +33,7 @@ public class CarServiceImpl implements CarService {
         if (count >= carList.size()){
             return carList;
         } else {
-            for (int i = 1; i <= count; i++){
+            for (int i = 0; i <= count-1; i++){
                 countCars.add(carList.get(i));
             }
             return countCars;
