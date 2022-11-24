@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>New cars</title>
+
+</head>
+<!--<body>-->
+<!--<form th:method="POST" th:action="@{/people}" th:object="${user}">-->
+<!--  <label for="name">Enter name: </label>-->
+<!--&lt;!&ndash;  <input type="text" th:field="*{name}" id="name"/>&ndash;&gt;-->
+<!--  <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">New error</div>-->
+<!--  <br/>-->
+<!--  <input type="submit" value="Create!"/>-->
+<!--</form>-->
+
+<form th:method="POST" th:action="@{/cars}" th:object="${car}">
+<div>
+  <label for="gosNomer">gos</label>
+  <input type="text" th:field="*{gosNomer}" id="gosNomer"/>
+  </br>
+  <label for="brand">brand</label>
+  <input type="text" th:field="*{brand}" id="brand"/>
+  <br>
+  <label for="color">color</label>
+  <input type="text"  th:field="*{color}"  id="color"/>
+  <br>
+  <input type="submit" value="Add Car"/>
+</div>
+</form>
+
+</body>
+</html>

@@ -1,11 +1,11 @@
 package web.models;
 
 public class Car {
-    private int gosNomer;
+    public String gosNomer;
     private String brand;
     private String color;
 
-    public Car(int gosNomer, String brand, String color) {
+    public Car(String gosNomer, String brand, String color) {
         this.gosNomer = gosNomer;
         this.brand = brand;
         this.color = color;
@@ -14,11 +14,11 @@ public class Car {
     public Car() {
     }
 
-    public int getGosNomer() {
+    public String getGosNomer() {
         return gosNomer;
     }
 
-    public void setGosNomer(int gosNomer) {
+    public void setGosNomer(String gosNomer) {
         this.gosNomer = gosNomer;
     }
 

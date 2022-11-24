@@ -12,5 +12,5 @@ import java.util.List;
 public interface CarService {
     public List<Car> getCar();
     public List<Car> countCars(int count);
-
+public void save(Car car);
 }
