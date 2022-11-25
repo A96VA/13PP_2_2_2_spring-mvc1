@@ -20,9 +20,16 @@ public class UserServiceImpl implements UserService {
         userList.add(new User(++AUTO_ID,567, "Stiv", "Jobs"));
         userList.add(new User(++AUTO_ID,678, "Yan", "Ins"));
     }
+
+
+
     @Override
-    public List<User> getUser() {
+    public List<User> getUser(int id) {
        return userList;
+    }
+    @Override
+    public User show(int id){
+        return userList.stream().filter(user -> user.getId() == id).findAny().orElse(null);
     }
 
     @Override
@@ -39,5 +46,14 @@ public class UserServiceImpl implements UserService {
     }
     public void save(User user){
         userList.add(user);
+    }
+
+    @Override
+    public void update(int id, User updateUser) {
+    User userToBeUpdate = userList.get(id);
+    userToBeUpdate.setId(++AUTO_ID);
+    userToBeUpdate.setNomer(updateUser.getNomer());
+    userToBeUpdate.setNameUs(updateUser.getNameUs());
+    userToBeUpdate.setLastNameUs(updateUser.getLastNameUs());
     }
 }

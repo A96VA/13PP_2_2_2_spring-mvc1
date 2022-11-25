@@ -23,6 +23,12 @@ public class UsersController {
         return "users";
     }
 
+    @GetMapping("/{id}")
+    public String chow(@PathVariable("id") int id, Model model){
+        model.addAttribute("user", userService.show(id));
+        return "show";
+    }
+
     @GetMapping("/new")
     public String newUser(Model model) {
         model.addAttribute("user", new User());
@@ -35,11 +41,17 @@ public class UsersController {
         return "redirect:/users";
     }
 
-//    @GetMapping("/{count}/edit")
-//    public String edit(Model model, @PathVariable("count") int count){
-//        model.addAttribute("car", userService.countUsers(count));
-//        return "edit";
-//    }
+    @GetMapping("/{id}/edit")
+    public String edit(Model model, @PathVariable("id") int id){
+        model.addAttribute("user", userService.getUser(id));
+        return "edit";
+    }
+
+    @PatchMapping("/{id}")
+    public String update(@ModelAttribute("user") User user, @PathVariable("id") int id) {
+        userService.update(id, user);
+        return "redirect:/user";
+    }
 
 
 
