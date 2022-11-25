@@ -43,16 +43,19 @@ public class UsersController {
 
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id){
-        model.addAttribute("user", userService.getUser(id));
+        model.addAttribute("user", userService.show(id));
         return "edit";
     }
-
+//    {id}(id=${user.getId()}) {nomer}(nomer=${user.getNomer()}) {nameUs}(nameUs=${user.getNameUs()}) {lastNameUs}(lastNameUs=${user.getLastNameUs()}
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("user") User user, @PathVariable("id") int id) {
+    public String update(@PathVariable("id") int id, @ModelAttribute("user") User user) {
         userService.update(id, user);
-        return "redirect:/user";
+        return "redirect:/users";
     }
-
+//    {nomer}{nameUs}{lastNameUs}
+//    @PathVariable("nomer") int nomer,
+//    @PathVariable("nameUs") String nameUs,
+//    @PathVariable("lastNameUs") String lastNameUs
 
 
 }

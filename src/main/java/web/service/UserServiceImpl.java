@@ -45,15 +45,17 @@ public class UserServiceImpl implements UserService {
         }
     }
     public void save(User user){
+        user.setId(++AUTO_ID);
         userList.add(user);
     }
 
     @Override
     public void update(int id, User updateUser) {
-    User userToBeUpdate = userList.get(id);
-    userToBeUpdate.setId(++AUTO_ID);
-    userToBeUpdate.setNomer(updateUser.getNomer());
-    userToBeUpdate.setNameUs(updateUser.getNameUs());
-    userToBeUpdate.setLastNameUs(updateUser.getLastNameUs());
+        User userToBeUpdate = show(id);
+        userToBeUpdate.setId(++AUTO_ID);
+//        userToBeUpdate.setId(updateUser.getId());
+        userToBeUpdate.setNomer(updateUser.getNomer());
+        userToBeUpdate.setNameUs(updateUser.getNameUs());
+        userToBeUpdate.setLastNameUs(updateUser.getLastNameUs());
     }
 }
