@@ -58,4 +58,10 @@ public class UserServiceImpl implements UserService {
         userToBeUpdate.setNameUs(updateUser.getNameUs());
         userToBeUpdate.setLastNameUs(updateUser.getLastNameUs());
     }
+
+    @Override
+    public void delete(int id) {
+        userList.removeIf(u -> u.getId() == id);
+
+    }
 }

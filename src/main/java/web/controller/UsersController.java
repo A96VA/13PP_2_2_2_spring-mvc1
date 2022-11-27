@@ -24,7 +24,7 @@ public class UsersController {
     }
 
     @GetMapping("/{id}")
-    public String chow(@PathVariable("id") int id, Model model){
+    public String show(@PathVariable("id") int id, Model model){
         model.addAttribute("user", userService.show(id));
         return "show";
     }
@@ -52,6 +52,13 @@ public class UsersController {
         userService.update(id, user);
         return "redirect:/users";
     }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") int id){
+        userService.delete(id);
+        return "redirect:/users";
+    }
+
 //    {nomer}{nameUs}{lastNameUs}
 //    @PathVariable("nomer") int nomer,
 //    @PathVariable("nameUs") String nameUs,
