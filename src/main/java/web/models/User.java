@@ -1,11 +1,22 @@
 package web.models;
 
+import org.springframework.stereotype.Component;
+
+import javax.persistence.*;
+import java.util.Objects;
+
+@Entity
+@Table(name = "users")
 public class User {
-
-
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column (name = "nomer")
     private int nomer;
+    @Column (name = "nameUs")
     private String nameUs;
+    @Column (name = "lastNameUs")
     private String lastNameUs;
 
     public User(int nomer, String nameUs, String lastNameUs) {
@@ -64,5 +75,18 @@ public class User {
                 ", nameUs='" + nameUs + '\'' +
                 ", lastNameUs='" + lastNameUs + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id && nomer == user.nomer && nameUs.equals(user.nameUs) && lastNameUs.equals(user.lastNameUs);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nomer, nameUs, lastNameUs);
     }
 }

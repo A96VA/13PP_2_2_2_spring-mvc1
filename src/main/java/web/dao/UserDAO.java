@@ -1,10 +1,13 @@
-package web.service;
+package web.dao;
 
 import web.models.User;
 
 import java.util.List;
 
-public interface UserService {
+
+
+public interface UserDAO {
+
     User show(int id);                       //вывод одного
 
     List<User> countUsers(int count);        // вывод всех или несколько
